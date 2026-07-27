@@ -10,15 +10,7 @@ const links = [
 ]
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -31,11 +23,7 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-          scrolled ? 'bg-parm-black/90 backdrop-blur-md shadow-lg shadow-black/30' : 'bg-transparent'
-        }`}
-      >
+      <header className="fixed inset-x-0 top-0 z-50 bg-parm-black shadow-lg shadow-black/30">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5 sm:px-8">
           <a href="#top" className="flex items-center">
             <img

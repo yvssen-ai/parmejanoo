@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
-import heroImage from '../assets/images/parmejano-1.jpg'
+import heroVideoMp4 from '../assets/video/cheese-pull.mp4'
+import heroVideoWebm from '../assets/video/cheese-pull.webm'
+import heroPoster from '../assets/video/cheese-pull-poster.jpg'
 
 const toppings = [
   { icon: '🍅', from: { x: -160, y: -120 }, settle: { x: -120, y: -40 }, delay: 0.4, rotate: -18 },
@@ -18,14 +20,18 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[100svh] items-end overflow-hidden bg-parm-black pt-24"
     >
-      <img
-        src={heroImage}
-        alt=""
+      <video
+        autoPlay={!prefersReducedMotion}
+        muted
+        loop
+        playsInline
+        poster={heroPoster}
+        className="absolute inset-0 h-full w-full object-cover object-center opacity-70"
         aria-hidden="true"
-        className={`absolute inset-0 h-full w-full object-cover object-center opacity-70 ${
-          prefersReducedMotion ? '' : 'animate-slowzoom'
-        }`}
-      />
+      >
+        <source src={heroVideoMp4} type="video/mp4" />
+        <source src={heroVideoWebm} type="video/webm" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-t from-parm-black via-parm-black/60 to-parm-black/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-parm-black/70 via-transparent to-parm-black/40" />
 
@@ -114,21 +120,6 @@ export function Hero() {
           </a>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex h-9 w-6 items-start justify-center rounded-full border-2 border-parm-cream/40 p-1"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-parm-cream/70" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }
