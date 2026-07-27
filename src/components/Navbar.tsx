@@ -23,7 +23,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 bg-parm-black shadow-lg shadow-black/30">
+      <header className="fixed inset-x-0 top-0 z-50 bg-parm-header shadow-lg shadow-black/30">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2.5 sm:px-8">
           <a href="#top" className="flex items-center">
             <img
