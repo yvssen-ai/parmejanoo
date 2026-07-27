@@ -26,7 +26,7 @@ export function Hero() {
         loop
         playsInline
         poster={heroPoster}
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-70"
+        className="absolute inset-0 h-full w-full object-cover object-[50%_70%] opacity-70"
         aria-hidden="true"
       >
         <source src={heroVideoMp4} type="video/mp4" />
